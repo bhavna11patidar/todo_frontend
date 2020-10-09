@@ -1,0 +1,33 @@
+
+var cors=require('cors');
+app.use(cors());
+
+app.post('/save',(req,res)=>{
+   let saveTask={
+    name:req.body.name,
+    title:req.body.title,
+    duration:req.body.duration,
+    description:req.body.description,
+}
+let task=new Task(saveTask);
+task.save()
+.then(()=>{
+   res.status("200").json({msg:"Data Inserted Successfully!"});
+}).catch((err)=>{
+    console.log(err);
+})
+})
+
+app.get('/view', function (req, res) {
+    task.find({})
+    .then((response)=>{
+        //res.render('view',{data:response}); 
+        if(response.length>0){
+            res.status(200).json(response);
+        }else{
+            res.status(404).json({msg:"No data found"});
+        }
+    }).catch((err)=>{
+        res.status(500).json({msg:"Internal Server Error"});
+    })
+})
