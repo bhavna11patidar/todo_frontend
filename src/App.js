@@ -5,6 +5,7 @@ import Header from './Component/Header';
 import Add from './Component/Add';
 import View from './Component/View';
 import {Provider} from './Component/Context';
+import Edit from "./Component/Edit";
 function App() {
   return (
     <Router>
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' component={Header}></Route>
         <Route path='/add-list' component={Add}></Route>
         <Route path='/view-list' component={View}></Route>
+        <Route path='/edit/:id' component={Edit}></Route>
       </Provider>
     </Router>
   );

@@ -22,7 +22,7 @@ export default  function MoviesList() {
                     <th>Title</th>
                     <th>Duration</th>
                     <th>Description</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
